@@ -13,6 +13,6 @@
     </navigation-rule>
     
     <lifecycle>
-        <phase-listener>br.com.jsfinicio.util.AuthorizationListener</phase-listener>
+        <phase-listener>br.com.jsf_final.util.AuthorizationListener</phase-listener>
     </lifecycle>
 </faces-config>

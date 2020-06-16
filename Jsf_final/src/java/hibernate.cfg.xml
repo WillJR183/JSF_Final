@@ -49,11 +49,11 @@ Contributor(s):
     <property name="hibernate.connection.password">nbuser</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
     <property name="hibernate.show_sql">true</property>
-    <mapping class="br.com.jsfinicio.model.AlunoModel"/>
-    <mapping class="br.com.jsfinicio.model.AreaModel"/>
-    <mapping class="br.com.jsfinicio.model.DisciplinaModel"/>
-    <mapping class="br.com.jsfinicio.model.ProfessorModel"/>
-    <mapping class="br.com.jsfinicio.model.PessoaModel"/>
-    <mapping class="br.com.jsfinicio.model.EstadoModel"/>
+    <mapping class="br.com.jsf_final.model.AlunoModel" file="" jar="" package="" resource=""/>
+    <mapping class="br.com.jsf_final.model.AreaModel" file="" jar="" package="" resource=""/>
+    <mapping class="br.com.jsf_final.model.DisciplinaModel" file="" jar="" package="" resource=""/>
+    <mapping class="br.com.jsf_final.model.ProfessorModel" file="" jar="" package="" resource=""/>
+    <mapping class="br.com.jsf_final.model.PessoaModel" file="" jar="" package="" resource=""/>
+    <mapping class="br.com.jsf_final.model.EstadoModel" file="" jar="" package="" resource=""/>
   </session-factory>
 </hibernate-configuration>
