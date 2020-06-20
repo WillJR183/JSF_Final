@@ -39,7 +39,7 @@ public class AreaRepository extends Conexao {
         return listaDeAreas;
     }
    
-     public AreaModel buscarPorID(long idArea){
+     public AreaModel buscarPorID(int idArea){
         AreaModel area = new AreaModel();
         super.inicializa();
         area = (AreaModel) super.getSess().get(AreaModel.class, idArea);
@@ -47,7 +47,7 @@ public class AreaRepository extends Conexao {
         return area;
     }
     
-    public void excluirPorID(long idArea){
+    public void excluirPorID(int idArea){
         super.inicializa();
         AreaModel area = (AreaModel) super.getSess().get(AreaModel.class, idArea);
         super.getSess().delete(area);

@@ -51,11 +51,11 @@ public class AreaController {
         this.listaDeAreas = this.areaRepository.buscarPorNome(this.areaModel.getDescricao());
     }
 
-    public void excluirPorID(long idArea) {
+    public void excluirPorID(int idArea) {
         this.areaRepository.excluirPorID(idArea);
     }
 
-    public String editarPorID(long idArea) throws IOException {
+    public String editarPorID(int idArea) throws IOException {
         this.areaModel = this.areaRepository.buscarPorID(idArea);
 
         return "editarArea.xhtml?faces-redirect=true";
