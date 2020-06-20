@@ -51,11 +51,11 @@ public class DisciplinaController {
         this.listaDeDisciplinas = this.disciplinaRepository.buscarPorNome(this.disciplinaModel.getNome());
     }
 
-    public void excluirPorID(long idDisciplina) {
+    public void excluirPorID(int idDisciplina) {
         this.disciplinaRepository.excluirPorID(idDisciplina);
     }
 
-    public String editarPorID(long idDisciplina) throws IOException {
+    public String editarPorID(int idDisciplina) throws IOException {
         this.disciplinaModel = this.disciplinaRepository.buscarPorID(idDisciplina);
 
         return "editarDisciplina.xhtml?faces-redirect=true";

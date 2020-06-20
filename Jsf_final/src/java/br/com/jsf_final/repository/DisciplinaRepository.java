@@ -26,7 +26,7 @@ public class DisciplinaRepository extends Conexao {
     public List<DisciplinaModel> buscarTodos(){
         List<DisciplinaModel> listaDeDisciplinas = new ArrayList<>();
         super.inicializa();
-        listaDeDisciplinas = super.getSess().createQuery("from DisciplinasModel").list();
+        listaDeDisciplinas = super.getSess().createQuery("from DisciplinaModel").list();
         super.executar();
         return listaDeDisciplinas;
     }
@@ -34,12 +34,12 @@ public class DisciplinaRepository extends Conexao {
     public List<DisciplinaModel> buscarPorNome(String nome){
         List<DisciplinaModel> listaDeDisciplinas = new ArrayList<>();
         super.inicializa();
-        listaDeDisciplinas = super.getSess().createQuery("from DisciplinasModel where UPPER(nome) like '%" + nome.toUpperCase() + "%'").list();
+        listaDeDisciplinas = super.getSess().createQuery("from DisciplinaModel where UPPER(nome) like '%" + nome.toUpperCase() + "%'").list();
         super.executar();
         return listaDeDisciplinas;
     }
    
-     public DisciplinaModel buscarPorID(long idDisciplina){
+     public DisciplinaModel buscarPorID(int idDisciplina){
         DisciplinaModel disciplina = new DisciplinaModel();
         super.inicializa();
         disciplina = (DisciplinaModel) super.getSess().get(DisciplinaModel.class, idDisciplina);
@@ -47,7 +47,7 @@ public class DisciplinaRepository extends Conexao {
         return disciplina;
     }
     
-    public void excluirPorID(long idDisciplina){
+    public void excluirPorID(int idDisciplina){
         super.inicializa();
         DisciplinaModel disciplina = (DisciplinaModel) super.getSess().get(DisciplinaModel.class, idDisciplina);
         super.getSess().delete(disciplina);
