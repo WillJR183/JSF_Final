@@ -62,7 +62,29 @@ public abstract class PessoaModel implements Serializable{
     @Fetch(FetchMode.JOIN)
     @Cascade(CascadeType.SAVE_UPDATE)
     private EstadoModel estadoOrigem;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="idCidade", insertable=true, updatable=true)
+    @Fetch(FetchMode.JOIN)
+    @Cascade(CascadeType.SAVE_UPDATE)
+    private CidadeModel cidadeOrigem;
 
+    public CidadeModel getCidadeOrigem() {
+        return cidadeOrigem;
+    }
+
+    public void setCidadeOrigem(CidadeModel cidadeOrigem) {
+        this.cidadeOrigem = cidadeOrigem;
+    }
+    
+    public CidadeModel getCidade() {
+        return cidadeOrigem;
+    }
+    
+     public void setCidade(CidadeModel cidadeOrigem) {
+        this.cidadeOrigem = cidadeOrigem;
+    }
+    
     public String getLogin() {
         return login;
     }

@@ -5,8 +5,10 @@
  */
 package br.com.jsf_final.controller;
 
+import br.com.jsf_final.model.CidadeModel;
 import br.com.jsf_final.model.EstadoModel;
 import br.com.jsf_final.model.ProfessorModel;
+import br.com.jsf_final.repository.CidadeRepository;
 import br.com.jsf_final.repository.EstadoRepository;
 import br.com.jsf_final.repository.ProfessorRepository;
 import java.io.IOException;
@@ -26,14 +28,18 @@ public class ProfessorController {
     private ProfessorModel professorModel;
     private EstadoModel estadoModel;
     private EstadoRepository estadoRepository;
+    private CidadeModel cidadeModel;
+    private CidadeRepository cidadeRepository;
     private ProfessorRepository professorRepository;
     private List<ProfessorModel> listaDeProfessores;
 
     public ProfessorController() {
         
         this.estadoRepository = new EstadoRepository();
+        this.cidadeRepository = new CidadeRepository();
         this.professorModel = new ProfessorModel();
         this.estadoModel = new EstadoModel();
+        this.cidadeModel = new CidadeModel();
         this.professorRepository = new ProfessorRepository();
         this.listaDeProfessores = new ArrayList<>();
     }
@@ -42,7 +48,9 @@ public class ProfessorController {
         
         try {
             this.estadoModel = this.estadoRepository.buscarPorID(this.estadoModel.getIdEstado());
+            this.cidadeModel = this.cidadeRepository.buscarPorID(this.cidadeModel.getIdCidade());
             this.professorModel.setEstado(this.estadoModel);
+            this.professorModel.setCidade(this.cidadeModel);
             this.professorRepository.salvar(this.professorModel);
             this.professorModel = new ProfessorModel();
         } 
@@ -66,6 +74,22 @@ public class ProfessorController {
         this.professorModel = this.professorRepository.buscarPorID(idpessoa);
 
         return "editarProfessor.xhtml?faces-redirect=true";
+    }
+
+    public CidadeModel getCidadeModel() {
+        return cidadeModel;
+    }
+
+    public void setCidadeModel(CidadeModel cidadeModel) {
+        this.cidadeModel = cidadeModel;
+    }
+
+    public CidadeRepository getCidadeRepository() {
+        return cidadeRepository;
+    }
+
+    public void setCidadeRepository(CidadeRepository cidadeRepository) {
+        this.cidadeRepository = cidadeRepository;
     }
 
     public EstadoRepository getEstadoRepository() {

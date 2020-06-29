@@ -48,6 +48,13 @@
                                        itemLabel="#{estado.nome}" itemValue="#{estado.idEstado}" />
                     </h:selectOneMenu>
                 </div>
+                <div class="form-group col-md-6" onload="#{cidadeController.buscarTodos()}">
+                    <label for="estados">Estado de Origem</label>
+                    <h:selectOneMenu class="form-control" id="idCidade" value="#{alunoController.cidadeModel.idCidade}">
+                        <f:selectItems value="#{cidadeController.listaDeCidades}" var="cidade"
+                                       itemLabel="#{cidade.nome}" itemValue="#{cidade.idCidade}" />
+                    </h:selectOneMenu>
+                </div>
             </div>
             <h:commandButton class="btn btn-primary" value="Salvar" action="#{alunoController.salvar()}"/>
         </h:form>

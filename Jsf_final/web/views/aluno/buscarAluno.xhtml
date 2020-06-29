@@ -24,8 +24,9 @@
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">E-Mail</th>
-                    <th scope="col">idade</th>
-                    <th scope="col">estado</th>
+                    <th scope="col">Idade</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Cidade</th>
                     <th scope="col">#</th>
                     <th scope="col">#</th>
                 </tr>
@@ -38,6 +39,7 @@
                         <td>#{aluno.email}</td>
                         <td>#{aluno.idade}</td>
                         <td>#{aluno.estado.nome}</td>
+                        <td>#{aluno.cidade.nome}</td>
                         <td>
                             <h:form>
                                 <h:commandButton class="btn btn-info" value="Editar" action= "#{alunoController.editarPorID(aluno.idpessoa)}"/>

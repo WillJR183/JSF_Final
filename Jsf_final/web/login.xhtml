@@ -12,19 +12,14 @@
     </h:head>
     <h:body class="text-center">
         <h:form class="form-signin">
-            <h:graphicImage class="mb-4" library="imagens" width="20%" name="marcaifms.png" alt="Marca da instituição"/>
-            <h:graphicImage class="mb-4" library="imagens" width="20%" name="bootstrap-solid.svg" alt="Marca bootstrap"/>
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <h:graphicImage class="mb-4" library="imagens" width="30%" name="marcaifms.png" alt="Marca da instituição"/>
+            <h1 class="h3 mb-3 font-weight-normal">Login</h1>
             <label for="login" class="sr-only">Login</label>
             <h:inputText class="form-control" value="#{usuarioController.usuario.login}" a:placeholder="login" required="" a:autofocus="true"/>
             <label for="senha" class="sr-only">Senha</label>
             <h:inputSecret class="form-control" value="#{usuarioController.usuario.senha}" a:placeholder="senha" required=" "/>
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"/> Remember me
-                </label>
-            </div>
-            <h:commandButton action="#{usuarioController.login()}" class="btn btn-lg btn-primary btn-block" value="Sign in" />
+            
+            <h:commandButton action="#{usuarioController.login()}" class="btn btn-lg btn-primary btn-block" value="Entrar" />
             <hr/>
             <h:link class="nav-link btn btn-primary" value="Principal" outcome="/index.xhtml" />
             <p class="mt-5 mb-3 text-muted">©getbootstrap.com - sign-in - Template</p>

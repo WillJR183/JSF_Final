@@ -55,5 +55,6 @@ Contributor(s):
     <mapping class="br.com.jsf_final.model.EstadoModel"/>
     <mapping class="br.com.jsf_final.model.PessoaModel"/>
     <mapping class="br.com.jsf_final.model.ProfessorModel"/>
+    <mapping class="br.com.jsf_final.model.CidadeModel"/>
   </session-factory>
 </hibernate-configuration>

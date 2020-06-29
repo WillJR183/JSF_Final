@@ -41,11 +41,18 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-6" onload="#{estadoController.buscarTodos()}">
+                <div class="form-group col-md-3" onload="#{estadoController.buscarTodos()}">
                     <label for="estados">Estado de Origem</label>
                     <h:selectOneMenu class="form-control" id="idEstado" value="#{professorController.estadoModel.idEstado}">
                         <f:selectItems value="#{estadoController.listaDeEstados}" var="estado"
                                        itemLabel="#{estado.nome}" itemValue="#{estado.idEstado}" />
+                    </h:selectOneMenu>
+                </div>
+                <div class="form-group col-md-3" onload="#{cidadeController.buscarTodos()}">
+                    <label for="estados">Cidade de Origem</label>
+                    <h:selectOneMenu class="form-control" id="idCidade" value="#{professorController.cidadeModel.idCidade}">
+                        <f:selectItems value="#{cidadeController.listaDeCidades}" var="cidade"
+                                       itemLabel="#{cidade.nome}" itemValue="#{cidade.idCidade}" />
                     </h:selectOneMenu>
                 </div>
             </div>

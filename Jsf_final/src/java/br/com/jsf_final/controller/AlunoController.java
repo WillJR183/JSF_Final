@@ -6,8 +6,10 @@
 package br.com.jsf_final.controller;
 
 import br.com.jsf_final.model.AlunoModel;
+import br.com.jsf_final.model.CidadeModel;
 import br.com.jsf_final.model.EstadoModel;
 import br.com.jsf_final.repository.AlunoRepository;
+import br.com.jsf_final.repository.CidadeRepository;
 import br.com.jsf_final.repository.EstadoRepository;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,14 +29,18 @@ public class AlunoController {
     private AlunoModel alunoModel;
     private EstadoModel estadoModel;
     private EstadoRepository estadoRepository;
+    private CidadeModel cidadeModel;
+    private CidadeRepository cidadeRepository;
     private AlunoRepository alunoRepository;
     private List<AlunoModel> listaDeAlunos;
 
     public AlunoController() {
         
         this.estadoRepository = new EstadoRepository();
+        this.cidadeRepository = new CidadeRepository();
         this.alunoModel = new AlunoModel();
         this.estadoModel = new EstadoModel();
+        this.cidadeModel = new CidadeModel();
         this.alunoRepository = new AlunoRepository();
         this.listaDeAlunos = new ArrayList<>();
     }
@@ -43,7 +49,9 @@ public class AlunoController {
         
         try {
             this.estadoModel = this.estadoRepository.buscarPorID(this.estadoModel.getIdEstado());
+            this.cidadeModel = this.cidadeRepository.buscarPorID(this.cidadeModel.getIdCidade());
             this.alunoModel.setEstado(this.estadoModel);
+            this.alunoModel.setCidadeOrigem(this.cidadeModel);
             this.alunoRepository.salvar(this.alunoModel);
             this.alunoModel = new AlunoModel();
         } 
@@ -108,5 +116,21 @@ public class AlunoController {
     public void setListaDeAlunos(List<AlunoModel> listaDeAlunos) {
         this.listaDeAlunos = listaDeAlunos;
     }
-    
+
+    public CidadeModel getCidadeModel() {
+        return cidadeModel;
+    }
+
+    public void setCidadeModel(CidadeModel cidadeModel) {
+        this.cidadeModel = cidadeModel;
+    }
+
+    public CidadeRepository getCidadeRepository() {
+        return cidadeRepository;
+    }
+
+    public void setCidadeRepository(CidadeRepository cidadeRepository) {
+        this.cidadeRepository = cidadeRepository;
+    }
+      
 }
