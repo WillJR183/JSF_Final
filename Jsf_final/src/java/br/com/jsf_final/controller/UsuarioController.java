@@ -25,6 +25,7 @@ public class UsuarioController {
     
     private Usuario usuario;
     private UsuarioRepository usuarioRepository;
+    private String msg;
 
     public UsuarioController() {
         
@@ -32,12 +33,20 @@ public class UsuarioController {
         this.usuarioRepository = new UsuarioRepository();
     }
 
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+    
     public void login() throws IOException {
         
         List<PessoaModel> listaDePessoas = this.usuarioRepository.buscar(this.usuario.getLogin());
         if (listaDePessoas == null || listaDePessoas.isEmpty()) {
             //avisem que não encontraram ninguém com o login x
-            System.out.println("no login errado");
+            msg = "Nenhum usuário possui este login!";
         } else {
             //pego a posição 0, pois só teremos um usuário com o login inserido
             //vocês deverão garantir que não teremos login´s iguais no banco de dados
@@ -47,8 +56,10 @@ public class UsuarioController {
                 usuario.setNome(listaDePessoas.get(0).getNome());
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("currentUser", this.usuario);//usuario.getLogin());
                 FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+                msg = "Logado com sucesso!";
             }else{
                 //Avisem que apesar do login estar correto a senha não está.
+                msg = "A senha não corresponde a este login!";
             }
         }
     }
