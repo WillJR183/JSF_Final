@@ -35,7 +35,7 @@ public class DisciplinaController {
     
     private ProfessorModel professorModel;
     private ProfessorRepository professorRepository;
-
+   
     public DisciplinaController() {
         
         this.disciplinaModel = new DisciplinaModel();
@@ -64,7 +64,7 @@ public class DisciplinaController {
         catch (Exception e) {
         }
     }
-
+     
     public ProfessorModel getProfessorModel() {
         return professorModel;
     }
