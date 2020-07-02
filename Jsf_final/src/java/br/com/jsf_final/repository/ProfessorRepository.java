@@ -19,7 +19,9 @@ public class ProfessorRepository extends Conexao {
     
     public void salvar(ProfessorModel professorModel){
         super.inicializa();
-        super.getSess().saveOrUpdate(professorModel);
+        //teste com clear
+        super.getSess().clear();
+        super.getSess().merge(professorModel);
         super.executar();
     }
     

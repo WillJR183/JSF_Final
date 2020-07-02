@@ -19,7 +19,9 @@ public class AreaRepository extends Conexao {
     
     public void salvar(AreaModel areaModel){
         super.inicializa();
-        super.getSess().saveOrUpdate(areaModel);
+        //teste com clear
+        super.getSess().clear();
+        super.getSess().merge(areaModel);
         super.executar();
     }
     

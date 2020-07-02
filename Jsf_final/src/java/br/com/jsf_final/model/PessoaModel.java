@@ -77,14 +77,6 @@ public abstract class PessoaModel implements Serializable{
         this.cidadeOrigem = cidadeOrigem;
     }
     
-    public CidadeModel getCidade() {
-        return cidadeOrigem;
-    }
-    
-     public void setCidade(CidadeModel cidadeOrigem) {
-        this.cidadeOrigem = cidadeOrigem;
-    }
-    
     public String getLogin() {
         return login;
     }
@@ -109,14 +101,6 @@ public abstract class PessoaModel implements Serializable{
         this.estadoOrigem = estadoOrigem;
     }
 
-    public EstadoModel getEstado() {
-        return estadoOrigem;
-    }
-
-    public void setEstado(EstadoModel estadoOrigem) {
-        this.estadoOrigem = estadoOrigem;
-    }
-    
     public String getRg() {
         return rg;
     }

@@ -19,7 +19,9 @@ public class DisciplinaRepository extends Conexao {
     
     public void salvar(DisciplinaModel disciplinaModel){
         super.inicializa();
-        super.getSess().saveOrUpdate(disciplinaModel);
+        //teste com clear
+        super.getSess().clear();
+        super.getSess().merge(disciplinaModel);
         super.executar();
     }
     

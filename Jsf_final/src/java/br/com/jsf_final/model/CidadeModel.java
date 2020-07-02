@@ -6,6 +6,7 @@
 package br.com.jsf_final.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -39,7 +41,19 @@ public class CidadeModel implements Serializable {
     @JoinColumn(name = "idEstado", insertable = true, updatable = true)
     @Fetch(FetchMode.JOIN)
     @Cascade(CascadeType.SAVE_UPDATE)
-    private EstadoModel estado;
+    private EstadoModel estadoOrigem;
+    
+    @OneToMany(mappedBy = "cidadeOrigem", fetch = FetchType.LAZY)
+    @Cascade(CascadeType.SAVE_UPDATE)
+    private List<PessoaModel> listaDePessoas;
+
+    public List<PessoaModel> getListaDePessoas() {
+        return listaDePessoas;
+    }
+
+    public void setListaDePessoas(List<PessoaModel> listaDePessoas) {
+        this.listaDePessoas = listaDePessoas;
+    }
 
     public int getIdCidade() {
         return idCidade;
@@ -57,12 +71,12 @@ public class CidadeModel implements Serializable {
         this.nome = nome;
     }
 
-    public EstadoModel getEstado() {
-        return estado;
+    public EstadoModel getEstadoOrigem() {
+        return estadoOrigem;
     }
 
-    public void setEstado(EstadoModel estado) {
-        this.estado = estado;
+    public void setEstadoOrigem(EstadoModel estadoOrigem) {
+        this.estadoOrigem = estadoOrigem;
     }
     
     

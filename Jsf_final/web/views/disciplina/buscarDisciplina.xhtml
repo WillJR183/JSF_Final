@@ -24,6 +24,8 @@
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Carga Horária</th>
+                     <th scope="col">Área</th>
+                     <th scope="col">Professor</th>
                     <th scope="col">#</th>
                     <th scope="col">#</th>
                 </tr>
@@ -34,6 +36,8 @@
                         <td>#{disciplina.idDisciplina}</td>
                         <td>#{disciplina.nome}</td>
                         <td>#{disciplina.cargaHorariaTotal}</td>
+                        <td>#{disciplina.area.descricao}</td>
+                        <td>#{disciplina.professor.nome}</td>
                         <td>
                             <h:form>
                                 <h:commandButton class="btn btn-info" value="Editar" action= "#{disciplinaController.editarPorID(disciplina.idDisciplina)}"/>

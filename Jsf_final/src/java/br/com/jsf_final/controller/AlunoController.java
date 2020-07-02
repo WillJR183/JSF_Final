@@ -27,21 +27,26 @@ import javax.faces.bean.SessionScoped;
 public class AlunoController {
     
     private AlunoModel alunoModel;
-    private EstadoModel estadoModel;
-    private EstadoRepository estadoRepository;
-    private CidadeModel cidadeModel;
-    private CidadeRepository cidadeRepository;
     private AlunoRepository alunoRepository;
     private List<AlunoModel> listaDeAlunos;
+    
+    private EstadoModel estadoModel;
+    private EstadoRepository estadoRepository;
+    
+    private CidadeModel cidadeModel;
+    private CidadeRepository cidadeRepository;
+    
 
     public AlunoController() {
         
         this.estadoRepository = new EstadoRepository();
         this.cidadeRepository = new CidadeRepository();
+        this.alunoRepository = new AlunoRepository();
+         
         this.alunoModel = new AlunoModel();
         this.estadoModel = new EstadoModel();
         this.cidadeModel = new CidadeModel();
-        this.alunoRepository = new AlunoRepository();
+        
         this.listaDeAlunos = new ArrayList<>();
     }
 
@@ -50,8 +55,10 @@ public class AlunoController {
         try {
             this.estadoModel = this.estadoRepository.buscarPorID(this.estadoModel.getIdEstado());
             this.cidadeModel = this.cidadeRepository.buscarPorID(this.cidadeModel.getIdCidade());
-            this.alunoModel.setEstado(this.estadoModel);
+            
+            this.alunoModel.setEstadoOrigem(this.estadoModel);
             this.alunoModel.setCidadeOrigem(this.cidadeModel);
+            
             this.alunoRepository.salvar(this.alunoModel);
             this.alunoModel = new AlunoModel();
         } 

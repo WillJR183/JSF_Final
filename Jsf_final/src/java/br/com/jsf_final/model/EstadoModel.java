@@ -41,7 +41,7 @@ public class EstadoModel implements Serializable {
     @Cascade(CascadeType.SAVE_UPDATE)
     private List<PessoaModel> listaDePessoas;
     
-    @OneToMany(mappedBy = "estado", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "estadoOrigem", fetch = FetchType.EAGER)
     @Cascade(CascadeType.ALL)
     private List<CidadeModel> listaDeCidades;
 

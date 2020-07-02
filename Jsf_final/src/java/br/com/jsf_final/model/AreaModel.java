@@ -37,6 +37,20 @@ public class AreaModel implements Serializable {
     @OneToMany(mappedBy="area", fetch = FetchType.LAZY)
     @Cascade(CascadeType.SAVE_UPDATE)
     private List<ProfessorModel> listaDeProfessores;
+    
+    @OneToMany(mappedBy = "area", fetch = FetchType.LAZY)
+    @Cascade(CascadeType.SAVE_UPDATE)
+    private List<DisciplinaModel> listaDeDisciplinas;
+
+    public List<DisciplinaModel> getListaDeDisciplinas() {
+        return listaDeDisciplinas;
+    }
+
+    public void setListaDeDisciplinas(List<DisciplinaModel> listaDeDisciplinas) {
+        this.listaDeDisciplinas = listaDeDisciplinas;
+    }
+    
+    
 
     public List<ProfessorModel> getListaDeProfessores() {
         return listaDeProfessores;

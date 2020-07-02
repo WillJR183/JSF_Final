@@ -49,8 +49,10 @@ public class ProfessorController {
         try {
             this.estadoModel = this.estadoRepository.buscarPorID(this.estadoModel.getIdEstado());
             this.cidadeModel = this.cidadeRepository.buscarPorID(this.cidadeModel.getIdCidade());
-            this.professorModel.setEstado(this.estadoModel);
-            this.professorModel.setCidade(this.cidadeModel);
+            
+            this.professorModel.setEstadoOrigem(this.estadoModel);
+            this.professorModel.setCidadeOrigem(this.cidadeModel);
+            
             this.professorRepository.salvar(this.professorModel);
             this.professorModel = new ProfessorModel();
         } 

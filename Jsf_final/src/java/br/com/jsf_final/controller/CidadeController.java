@@ -31,11 +31,7 @@ public class CidadeController {
         this.cidadeRepository = new CidadeRepository();
         this.listaDeCidades =  new ArrayList<>();
     }
-    /*
-     public void buscarTodos(){
-        this.listaDeCidades = this.cidadeRepository.buscarTodos();
-    }
-    */
+   
     public void buscarTodos() {
         this.listaDeCidades = cidadeRepository.buscarTodos();
     }

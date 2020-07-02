@@ -5,8 +5,12 @@
  */
 package br.com.jsf_final.controller;
 
+import br.com.jsf_final.model.AreaModel;
 import br.com.jsf_final.model.DisciplinaModel;
+import br.com.jsf_final.model.ProfessorModel;
+import br.com.jsf_final.repository.AreaRepository;
 import br.com.jsf_final.repository.DisciplinaRepository;
+import br.com.jsf_final.repository.ProfessorRepository;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,17 +29,35 @@ public class DisciplinaController {
     private DisciplinaModel disciplinaModel;
     private DisciplinaRepository disciplinaRepository;
     private List<DisciplinaModel> listaDeDisciplinas;
+    
+    private AreaModel areaModel;
+    private AreaRepository areaRepository;
+    
+    private ProfessorModel professorModel;
+    private ProfessorRepository professorRepository;
 
     public DisciplinaController() {
         
         this.disciplinaModel = new DisciplinaModel();
+        this.areaModel = new AreaModel();
+        this.professorModel = new ProfessorModel();
+        
         this.disciplinaRepository = new DisciplinaRepository();
+        this.areaRepository = new AreaRepository();
+        this.professorRepository = new ProfessorRepository();
+        
         this.listaDeDisciplinas = new ArrayList<>();
     }
 
     public void salvar() {
         
         try {
+            this.areaModel = this.areaRepository.buscarPorID(this.areaModel.getIdArea());
+            this.professorModel = this.professorRepository.buscarPorID(this.professorModel.getIdpessoa());
+            
+            this.disciplinaModel.setArea(this.areaModel);
+            this.disciplinaModel.setProfessor(professorModel);
+            
             this.disciplinaRepository.salvar(this.disciplinaModel);
             this.disciplinaModel = new DisciplinaModel();
         } 
@@ -43,6 +65,38 @@ public class DisciplinaController {
         }
     }
 
+    public ProfessorModel getProfessorModel() {
+        return professorModel;
+    }
+
+    public void setProfessorModel(ProfessorModel professorModel) {
+        this.professorModel = professorModel;
+    }
+
+    public ProfessorRepository getProfessorRepository() {
+        return professorRepository;
+    }
+
+    public void setProfessorRepository(ProfessorRepository professorRepository) {
+        this.professorRepository = professorRepository;
+    }
+
+    public AreaModel getAreaModel() {
+        return areaModel;
+    }
+
+    public void setAreaModel(AreaModel areaModel) {
+        this.areaModel = areaModel;
+    }
+
+    public AreaRepository getAreaRepository() {
+        return areaRepository;
+    }
+
+    public void setAreaRepository(AreaRepository areaRepository) {
+        this.areaRepository = areaRepository;
+    }
+    
     public void buscarTodos() {
         this.listaDeDisciplinas = this.disciplinaRepository.buscarTodos();
     }

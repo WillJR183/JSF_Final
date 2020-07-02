@@ -13,15 +13,29 @@
         <h:form>
             <h:inputHidden value="#{disciplinaController.disciplinaModel.idDisciplina}" />
             <div class="form-row">
-                <div class="form-group col-md-7">
+                <div class="form-group col-md-6">
                     <label for="nome">Nome</label>
                     <h:inputText value="#{disciplinaController.disciplinaModel.nome}" class="form-control"/>
                 </div>
-            </div>
-             <div class="form-row">
-                <div class="form-group col-md-7">
+                <div class="form-group col-md-6">
                     <label for="carga">Carga Horária</label>
                     <h:inputText value="#{disciplinaController.disciplinaModel.cargaHorariaTotal}" class="form-control"/>
+                </div>
+            </div>
+             <div class="form-row">
+                 <div class="form-group col-md-6" onload="#{areaController.buscarTodos()}">
+                    <label for="area">Área</label>
+                    <h:selectOneMenu class="form-control" id="idEstado" value="#{areaController.areaModel.idArea}">
+                        <f:selectItems value="#{areaController.listaDeAreas}" var="area"
+                                       itemLabel="#{area.descricao}" itemValue="#{area.idArea}" />
+                    </h:selectOneMenu>
+                </div>
+                 <div class="form-group col-md-6" onload="#{professorController.buscarTodos()}">
+                    <label for="area">Professor</label>
+                    <h:selectOneMenu class="form-control" id="idpessoa" value="#{disciplinaController.professorModel.idpessoa}">
+                        <f:selectItems value="#{professorController.listaDeProfessores}" var="professor"
+                                       itemLabel="#{professor.nome}" itemValue="#{professor.idpessoa}" />
+                    </h:selectOneMenu>
                 </div>
             </div>
             <h:commandButton class="btn btn-primary" value="Salvar" action="#{disciplinaController.salvar()}"/>

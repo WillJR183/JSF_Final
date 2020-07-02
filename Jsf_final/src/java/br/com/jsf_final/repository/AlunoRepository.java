@@ -19,7 +19,9 @@ public class AlunoRepository extends Conexao{
     
     public void salvar(AlunoModel alunoModel){
         super.inicializa();
-        super.getSess().saveOrUpdate(alunoModel);
+        //teste com clear
+        super.getSess().clear();
+        super.getSess().merge(alunoModel);
         super.executar();
     }
     

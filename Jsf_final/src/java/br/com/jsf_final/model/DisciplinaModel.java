@@ -49,7 +49,29 @@ public class DisciplinaModel implements Serializable {
     @Fetch(FetchMode.JOIN)
     @Cascade(CascadeType.SAVE_UPDATE)
     private ProfessorModel professor;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="idArea", insertable=true, updatable=true)
+    @Fetch(FetchMode.JOIN)
+    @Cascade(CascadeType.SAVE_UPDATE)
+    private AreaModel area;
 
+    public AreaModel getAreaModel() {
+        return area;
+    }
+
+    public void setAreaModel(AreaModel area) {
+        this.area = area;
+    }
+   
+      public AreaModel getArea() {
+        return area;
+    }
+
+    public void setArea(AreaModel area) {
+        this.area = area;
+    }
+   
     public int getIdDisciplina() {
         return idDisciplina;
     }
